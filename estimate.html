@@ -8,9 +8,9 @@
    <body>
    <div>Estimate</div>
    <div>
-   <div>No. 2019012101</div>
+   <div id="docnum"></div>
    <div>작성자 : 김한웅</div>
-   <div>발행일 : 2019.1.21</div>
+   <div id="writeDate"></div>
    </div>
    <div>Title</div>
    <div>
@@ -41,9 +41,12 @@
      <!--item input-->
 	<div id="itemInput">
 	 <select id="type" name="type">
-	 	<option value="service">service</option>
-		<option value="software">software</option>
-		<option value="arts">arts</option>
+	 	<option value="Service">Service</option>
+	 	<option value="Research">Research</option>
+	 	<option value="Seminar">Seminar</option>
+	 	<option value="Consulting">Consulting</option>
+		<option value="Software">Software</option>
+		<option value="Artswork">Artswork</option>
 	 </select>
       <input id="title" size="35" placeholder="title">
       <input id="hour" type="number" min="1" max="1000" value="1" placeholder="hour">H
@@ -57,7 +60,7 @@
 	  <div>Infomation</div>
 	  <ul>
 	  <li>Website : <a href="https://lazypic.org">http://lazypic.org</a></li>
-	  <li>본 견적서의 유효기간은 발생일로부터 30일 입니다.</li>
+	  <li>본 견적서의 유효기간은 작성일로부터 30일 입니다.</li>
 	  <li>SAR(Scope of Application Rate) / 적용비율 기준</li>
 	  	<ul>
 			<li>같은 소프트웨어라도 회사 인원규모대비 프로그램의 가치가 달라집니다.</li>

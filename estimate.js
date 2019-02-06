@@ -2,9 +2,9 @@ var items = [];
 
 function init() {
     document.getElementById("title").value = "";
-    document.getElementById("type").value = "service";
+    document.getElementById("type").value = "Service";
     document.getElementById("hour").value = 1;
-    document.getElementById("pers").value = "4";
+    document.getElementById("pers").value = 4;
     document.getElementById("charge").value = 55457;
 }
 
@@ -96,6 +96,32 @@ function printMode() {
 	window.print();
 }
 
+function writeDate() {
+	var date = new Date();
+	var y = date.getFullYear();
+	var m = date.getMonth() + 1;
+	var d = date.getDate();
+	document.getElementById("writeDate").innerHTML = `작성일 : ${y}. ${m}. ${d}`;
+}
+
+function docNum() {
+	var d = new Date();
+	var year = d.getFullYear();
+	var month = (d.getMonth() + 1).toString();
+	var day = d.getDate().toString();
+	var hour = d.getHours().toString();
+	if (month.length === 1) {
+		month = "0" + month;
+	}
+	if (day.length === 1) {
+		day = "0" + day;
+	}
+	if (hour.length === 1) {
+		hour = "0" + hour;
+	}
+	document.getElementById("docnum").innerHTML = "No. " + year + month + day + hour;
+}
+
 // enter를 치거나 add버튼을 클릭한다면 아이템이 보여야 한다.
 document.body.onkeyup = function(e) {
     if (e.keyCode == 13) {
@@ -103,3 +129,7 @@ document.body.onkeyup = function(e) {
     }
 };
 document.getElementById('add').addEventListener('click',newItem);
+
+// auto load
+window.onload=writeDate()
+window.onload=docNum()

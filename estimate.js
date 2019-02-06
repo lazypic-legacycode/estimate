@@ -4,7 +4,7 @@ function init() {
     document.getElementById("title").value = "";
     document.getElementById("type").value = "service";
     document.getElementById("hour").value = 1;
-    document.getElementById("rate").value = "1.00";
+    document.getElementById("pers").value = "4";
     document.getElementById("charge").value = 55457;
 }
 
@@ -21,9 +21,13 @@ function newItem() {
 	var id = d.getTime();
 	var type = document.getElementById("type").value;
 	var hour = Number(document.getElementById("hour").value);
-	var rate = Number(document.getElementById("rate").value);
+	var pers = Number(document.getElementById("pers").value);
 	var charge = Number(document.getElementById("charge").value);
-	var subtotal = Math.round(hour * rate * charge)
+	var sar = 1.0
+	if ( pers > 4 ) {
+		sar = 1.0 + (pers * 0.05)
+	}
+	var subtotal = Math.round(hour * sar * charge);
 	var discount = 1.0;
 	var total = discount * subtotal;
     var ul = document.getElementById("list");
@@ -33,7 +37,7 @@ function newItem() {
 	item["type"] = type;
 	item["title"] = title;
 	item["hour"] = hour;
-	item["rate"] = rate;
+	item["pers"] = pers;
 	item["charge"] = charge;
 	item["subtotal"] = subtotal;
 	item["discount"] = discount;
@@ -44,7 +48,7 @@ function newItem() {
 	var chargeWithCommas = numberWithCommas(charge);
 	var subTotalWithCommas = numberWithCommas(subtotal);
 	var totalWithCommas = numberWithCommas(total);
-    li.appendChild(document.createTextNode(`${type} : ${title} : ${hour} ${rate} ${chargeWithCommas} ${subTotalWithCommas} ${discount} ${totalWithCommas}`));
+    li.appendChild(document.createTextNode(`${type} : ${title} : ${hour} ${pers} ${sar} ${chargeWithCommas} ${subTotalWithCommas} ${discount} ${totalWithCommas}`));
     li.onclick = removeItem;
     ul.appendChild(li);
 	init()

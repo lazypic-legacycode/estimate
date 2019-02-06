@@ -1,0 +1,30 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="none.css" />
+      <title>
+         Estimate
+      </title>
+   </head>
+   <body>
+   <div>Estimate</div>
+     <!--item-->
+	 <select name="type">
+	 	<option value="service">service</option>
+		<option value="software">software</option>
+		<option value="arts">arts</option>
+	 </select>
+      <input id="input" placeholder="title">
+      <input id="hour" type="number" min="1" max="1000" value="1" placeholder="hour">
+      <input id="rate" type="number" step="0.01" min="1" max="1000" value="1.00" placeholder="rate">
+      <input id="charge" type="number" step="1" min="0" max="100000000000" value="55457" placeholder="charge">
+	  <button type="button">ADD</button>
+	  <!--list-->
+	  <div>Detail List</div>
+      <ul id="list"></ul>
+	  <div>Total</div>
+	  <div>Infomation</div>
+   </body>
+   <script src="app.js"></script>
+ </html>

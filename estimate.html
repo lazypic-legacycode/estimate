@@ -8,30 +8,75 @@
    <body>
    <div>Estimate</div>
    <div>
-   <button onclick="printPage()">인쇄하기</button>
-   <a href="https://github.com/lazypic/estimate/issues">issue</a>
+   <div>No. 2019012101</div>
+   <div>작성자 : 김한웅</div>
+   <div>발행일 : 2019.1.21</div>
    </div>
-     <!--item-->
+   <div>Title</div>
+   <div>
+	Service Provider<br>
+	Name : 김한웅<br>
+	Phone : <a href="tel:821094117096">+82 010 9411 7096</a><br>
+	Address :<br>
+	E-mail : <a href="mailto:hello@lazypic.org">hello@lazypic.org</a>
+   </div>
+   <div>
+   Customer
+   Name
+   Address
+   Phone
+   E-mail
+
+   </div>
+   <div>
+	  <div>SUMMARY</div>
+	  Total(합계) <div id="total">0</div>
+	  VAT(부가가치세) <div id="vat">0</div>
+	  WithHolding Tax(원천징수)<div id="withholdingTax">0</div>
+	  법인(합계+VAT)<div id="company">0</div>
+	  개인(합계-원천징수)<div id="personal">0</div>
+	</div>
+	<div>
+	<div>DETAIL FOR CONSOLIDATED BILL</div>
+     <!--item input-->
+	<div id="itemInput">
 	 <select id="type" name="type">
 	 	<option value="service">service</option>
 		<option value="software">software</option>
 		<option value="arts">arts</option>
 	 </select>
       <input id="title" size="35" placeholder="title">
-      <input id="hour" type="number" min="1" max="1000" value="1" placeholder="hour">
-      <input id="rate" type="number" step="0.01" min="1" max="1000" value="1.00" placeholder="rate">
+      <input id="hour" type="number" min="1" max="1000" value="1" placeholder="hour">H
+      <input id="rate" type="number" step="0.01" min="1.00" max="1000.0" value="1.00" placeholder="rate">SAR
       <input id="charge" type="number" step="1" min="0" max="100000000000" value="55457" placeholder="charge">
 	  <button id="add" type="button">ADD</button>
 	  <!--list-->
-	  <div>Detail List</div>
+	</div>
       <ul id="list"></ul>
-	  <div>Total</div>
-	  Total(합계) <div id="total">0</div>
-	  VAT(부가가치세) <div id="vat">0</div>
-	  WithHolding Tax(원천징수)<div id="withholdingTax">0</div>
-	  법인(합계+VAT)<div id="company">0</div>
-	  개인(합계-원천징수)<div id="personal">0</div>
+	  </div>
 	  <div>Infomation</div>
+	  <ul>
+	  <li>Website : <a href="https://lazypic.org">http://lazypic.org</a></li>
+	  <li>본 견적서의 유효기간은 발생일로부터 30일 입니다.</li>
+	  <li>SAR(Scope of Application Rate) / 적용비율 기준</li>
+	  	<ul>
+			<li>같은 소프트웨어라도 회사 인원규모대비 프로그램의 가치가 달라집니다.</li>
+			<li>5명 미만의 회사는 적용비율을 1.0으로 계산합니다.</li>
+			<li>5명 이상부터는 적용비율을 1.0 + (x*0.05) 비율로 계산합니다.</li>
+		</ul>
+	<li>한 업무(TASK)에 최소 1시간 업무단위를 책정합니다.</li>
+	<li>인건비 산정근거 : 2018년도 SW기술자 표준임금표 https://www.sw.or.kr/site/sw/ex/board/View.do?cbIdx=304&bcIdx=41033</li>
+	<li>원천징수세율 : <a href="https://www.nts.go.kr/support/support_03.asp?cinfo_key=MINF4820100726150811">https://www.nts.go.kr/support/support_03.asp?cinfo_key=MINF4820100726150811</a></li>
+	<ul>
+	<li>프리랜서 등 원천징수대상 일부 사업소득 : 3.3%</li>
+	<li>강연료 : 4.4%</li>
+	</ul>
+	</ul>
+   <div>
+   <button onclick="printMode()">인쇄모드</button>
+   <button onclick="inputMode()">입력모드</button>
+   <div id="issue"><a href="https://github.com/lazypic/estimate/issues">issue</a></div>
+   </div>
    </body>
    <script src="estimate.js"></script>
  </html>

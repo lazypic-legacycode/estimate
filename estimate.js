@@ -4,8 +4,12 @@ function init() {
     document.getElementById("title").value = "";
     document.getElementById("type").value = "service";
     document.getElementById("hour").value = 1;
-    document.getElementById("rate").value = 1.0;
+    document.getElementById("rate").value = "1.00";
     document.getElementById("charge").value = 55457;
+}
+
+function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function newItem() {
@@ -36,7 +40,11 @@ function newItem() {
 	item["total"] = total;
 	items.push(item)
 	li.setAttribute("id", id);
-    li.appendChild(document.createTextNode(`${type} : ${title} : ${hour} ${rate} ${charge} ${subtotal} ${discount} ${total}`));
+	li.setAttribute("class","item")
+	var chargeWithCommas = numberWithCommas(charge);
+	var subTotalWithCommas = numberWithCommas(subtotal);
+	var totalWithCommas = numberWithCommas(total);
+    li.appendChild(document.createTextNode(`${type} : ${title} : ${hour} ${rate} ${chargeWithCommas} ${subTotalWithCommas} ${discount} ${totalWithCommas}`));
     li.onclick = removeItem;
     ul.appendChild(li);
 	init()
@@ -61,14 +69,26 @@ function updateTotal() {
 	for (i = 0; i < items.length; i++) {
 		total += items[i]["subtotal"];
 	}
-	document.getElementById("total").innerHTML = total
-	document.getElementById("vat").innerHTML = Math.round(total * 0.1)
-	document.getElementById("withholdingTax").innerHTML = Math.round(total * 0.033)
-	document.getElementById("company").innerHTML = total + Math.round(total * 0.1)
-	document.getElementById("personal").innerHTML = total - Math.round(total * 0.033)
+	document.getElementById("total").innerHTML = numberWithCommas(total)
+	document.getElementById("vat").innerHTML = numberWithCommas(Math.round(total * 0.1))
+	document.getElementById("withholdingTax").innerHTML = numberWithCommas(Math.round(total * 0.033))
+	document.getElementById("company").innerHTML = numberWithCommas(total + Math.round(total * 0.1))
+	document.getElementById("personal").innerHTML = numberWithCommas(total - Math.round(total * 0.033))
 }
 
-function printPage() {
+function inputMode() {
+	var inputForm = document.getElementById('itemInput');
+	inputForm.style.display='block';
+	var issue = document.getElementById('issue');
+	issue.style.display='block';
+}
+
+function printMode() {
+	var inputForm = document.getElementById('itemInput');
+	inputForm.style.display='none';
+	var issue = document.getElementById('issue');
+	issue.style.display='none';
+
 	window.print();
 }
 

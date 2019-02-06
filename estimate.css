@@ -28,6 +28,6 @@ list-style: none;
 margin: 0;
 }
 */
-li:hover {
+.item:hover {
 text-decoration: line-through;
 }

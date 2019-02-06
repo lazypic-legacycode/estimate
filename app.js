@@ -11,7 +11,8 @@ function newItem() {
 	if ( item == "" ) {
 		return
 	};
-	var total = Number(document.getElementById("total").innerHTML);
+	var d = new Date();
+	var id = d.getTime();
 	var type = document.getElementById("type").value;
 	var hour = document.getElementById("hour").value;
 	var rate = document.getElementById("rate").value;
@@ -19,21 +20,22 @@ function newItem() {
 	var currentTotal = Math.round(Number(hour) * Number(rate) * Number(charge))
     var ul = document.getElementById("list");
     var li = document.createElement("li");
-    li.appendChild(document.createTextNode(`${type} : ${item} : ${hour}x${rate}x${charge}=${currentTotal}`));
+    li.appendChild(document.createTextNode(`${id} ${type} : ${item} : ${hour}x${rate}x${charge}=${currentTotal}`));
     ul.appendChild(li);
     li.onclick = removeItem;
 	init()
 	// update total
-	document.getElementById("total").innerHTML = total + currentTotal
+	var total = document.getElementById("total").innerHTML;
+	document.getElementById("total").innerHTML = Number(total) + currentTotal
 }
 
 
 function removeItem(e) {
     e.target.parentElement.removeChild(e.target);
 	var total = Number(document.getElementById("total").innerHTML);
-	rmvalue = Number(e.target.innerHTML.split("=")[1])
-	//console.log(rmvalue)
-	document.getElementById("total").innerHTML = total - rmvalue
+	subValue = Number(e.target.innerHTML.split("=")[1])
+	//console.log(subValue)
+	document.getElementById("total").innerHTML = total - subValue
 
 }
 

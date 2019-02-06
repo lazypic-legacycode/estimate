@@ -62,6 +62,10 @@ function updateTotal() {
 		total += items[i]["subtotal"];
 	}
 	document.getElementById("total").innerHTML = total
+	document.getElementById("vat").innerHTML = Math.round(total * 0.1)
+	document.getElementById("withholdingTax").innerHTML = Math.round(total * 0.033)
+	document.getElementById("company").innerHTML = total + Math.round(total * 0.1)
+	document.getElementById("personal").innerHTML = total - Math.round(total * 0.033)
 }
 
 function printPage() {

@@ -2,7 +2,7 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="estimate.css" />
       <title>Estimate</title>
    </head>
    <body>
@@ -25,8 +25,12 @@
 	  <div>Detail List</div>
       <ul id="list"></ul>
 	  <div>Total</div>
-	  <div id="total">0</div>
+	  Total(합계) <div id="total">0</div>
+	  VAT(부가가치세) <div id="vat">0</div>
+	  WithHolding Tax(원천징수)<div id="withholdingTax">0</div>
+	  법인(합계+VAT)<div id="company">0</div>
+	  개인(합계-원천징수)<div id="personal">0</div>
 	  <div>Infomation</div>
    </body>
-   <script src="app.js"></script>
+   <script src="estimate.js"></script>
  </html>

@@ -1,8 +1,8 @@
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-html {
-	font–family: "Nanum Gothic" ;
+body {
+	font-family: "Nanum Gothic", "NanumSquare", "Merriweather", "Helvetica Neue", Arial, sans-serif;
 }
 /*  
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 body {
 max-width: 500px;
 margin: 0 auto;

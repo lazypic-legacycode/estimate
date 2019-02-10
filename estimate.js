@@ -1,6 +1,11 @@
-var items = [];
+var doc = {
+	title:"",
+	num:"",
+	writedate:"",
+	items:[],
+};
 
-function init() {
+function initItem() {
     document.getElementById("title").value = "";
     document.getElementById("type").value = "Service";
     document.getElementById("hour").value = 1;
@@ -42,7 +47,7 @@ function newItem() {
 	item["subtotal"] = subtotal;
 	item["discount"] = discount;
 	item["total"] = total;
-	items.push(item)
+	doc.items.push(item)
 	li.setAttribute("id", id);
 	li.setAttribute("class","item")
 	var chargeWithCommas = numberWithCommas(charge);
@@ -51,16 +56,16 @@ function newItem() {
     li.appendChild(document.createTextNode(`${type} : ${title} : ${hour} ${pers} ${sar} ${chargeWithCommas} ${subTotalWithCommas} ${discount} ${totalWithCommas}`));
     li.onclick = removeItem;
     ul.appendChild(li);
-	init()
+	initItem()
 	updateTotal()
 }
 
 function removeItem(e) {
 	id = e.target.getAttribute("id");
 	// remove items
-	for ( i = 0; i < items.length; i++){ 
-	   	if ( items[i]["id"] == id) {
-			 items.splice(i, 1); 
+	for ( i = 0; i < doc.items.length; i++){ 
+	   	if ( doc.items[i]["id"] == id) {
+			 doc.items.splice(i, 1); 
 	   	};
 	};
 	updateTotal();
@@ -70,8 +75,8 @@ function removeItem(e) {
 
 function updateTotal() {
 	var total = 0;
-	for (i = 0; i < items.length; i++) {
-		total += items[i]["subtotal"];
+	for (i = 0; i < doc.items.length; i++) {
+		total += doc.items[i]["subtotal"];
 	}
 	document.getElementById("total").innerHTML = numberWithCommas(total)
 	document.getElementById("vat").innerHTML = numberWithCommas(Math.round(total * 0.1))
@@ -101,7 +106,8 @@ function writeDate() {
 	var y = date.getFullYear();
 	var m = date.getMonth() + 1;
 	var d = date.getDate();
-	document.getElementById("writeDate").innerHTML = `작성일 : ${y}. ${m}. ${d}`;
+	doc.writedate = `작성일 : ${y}. ${m}. ${d}`;
+	document.getElementById("writeDate").innerHTML = doc.writedate;
 }
 
 function docNum() {
@@ -119,7 +125,8 @@ function docNum() {
 	if (hour.length === 1) {
 		hour = "0" + hour;
 	}
-	document.getElementById("docnum").innerHTML = "No. " + year + month + day + hour;
+	doc.num = "No. " + year + month + day + hour;
+	document.getElementById("docnum").innerHTML = doc.num;
 }
 
 // enter를 치거나 add버튼을 클릭한다면 아이템이 보여야 한다.

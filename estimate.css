@@ -4,8 +4,14 @@ body {
 	padding: 10px;
 }
 
+#logo {
+	margin: -15 auto;
+	margin-left: 10;
+}
+
 h1 {
 	font-size: 30pt;
+	text-align: right;
 }
 
 h2 {
@@ -21,17 +27,23 @@ h3 {
 	text-align: right;
 }
 
-th {
-	font-size: 11pt;
-	font-weight: normal;
+table {
+	border: 1px solid #000;
+	width: 100%;
 }
 
-td {
-	font-size: 11pt;
+th,td {
+	font-size: 9pt;
+	border-bottom: 1px solid #000;
 }
 
 li {
-	font-size: 11pt;
+	font-size: 9pt;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
 }
 
 .item:hover {

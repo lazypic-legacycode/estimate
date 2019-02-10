@@ -10,34 +10,46 @@
       <title>Estimate</title>
    </head>
    <body>
-   <h1>ESTIMATE<img src="http://lazypic.org/images/doc_cal.svg" width="60"></h1>
+   <h1>ESTIMATE<img src="http://lazypic.org/images/doc_cal.svg" width="60" id="logo"></h1>
    <div class="comment">
    <div id="docnum"></div>
-   <div>작성자 : 김한웅</div>
    <div id="writeDate"></div>
    </div>
    <h2 id="doctitle">Title</h2>
    <input id="doctitleInput" size="35" placeholder="Estimate Title">
    <div>
-   <table border=1 width="100%">
+   <table width="100%">
    <thead>
    <tr>
    <th width="50%">Service Provider</td>
+   <th></td>
    <th width="50%">Customer</td>
    </tr>
    <tbody>
    <tr>
-	   <td>Name : 김한웅</td><td>Name : </td>
+	   <td>Name : 김한웅</td>
+	   <td></td>
+	   <td>Name : <input placeholder="Name"></td>
 	</tr>
-   <tr><td>Phone : <a href="tel:821094117096">+82 010 9411 7096</a></td><td>Phone :</td></tr>
-   <tr><td>E-mail : <a href="mailto:hello@lazypic.org">hello@lazypic.org</a></td><td>E-mail :</td></tr>
-   <tr><td>Address : </td><td></td></tr>
+   <tr>
+   <td>Phone : <a href="tel:821094117096">+82 010 9411 7096</a></td>
+   <td></td>
+	   <td>Phone : <input placeholder="+82 010 0000 0000"></td>
+	</tr>
+   <tr>
+   <td>E-mail : <a href="mailto:hello@lazypic.org">hello@lazypic.org</a></td>
+   <td></td>
+   <td>E-mail : <input placeholder="id@gmail.com"></td></tr>
+   <tr>
+   <td>Address : <input placeholder="Address" size="30"></td>
+   <td></td>
+   <td>Address : <input placeholder="Address" size="30"></td></tr>
    </tbody>
    </table>
    </div>
    <div>
 	  <h3>SUMMARY</h3>
-	  <table border=1 width="100%">
+	  <table width="100%">
 	  <tr>
 	  	<th width="60%">구 분</th>
 		<th width="40%">금 액</th>
@@ -79,7 +91,7 @@
 	  <button id="add" type="button">ADD</button>
 	</div>
 	  <!--list-->
-	  <table border="1" width="100%">
+	  <table width="100%">
 	  <thead>
 		  <tr>
 			  <th width="80">Type</th>

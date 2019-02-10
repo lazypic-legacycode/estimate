@@ -1,26 +1,39 @@
 body {
 	font-family: "Nanum Gothic", "NanumSquare", "Merriweather", "Helvetica Neue", Arial, sans-serif;
-}
-/*  
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-body {
-max-width: 500px;
-margin: 0 auto;
+	max-width: 870px;
+	padding: 10px;
 }
 
-input {
-padding-top: 30px;
-width: 500px;
-height: 60px;
-font-size: 40px;
-border: 0;
+h1 {
+	font-size: 30pt;
 }
 
-input:focus {
-outline: none;
+h2 {
+	font-size: 14pt;
 }
 
-*/
+h3 {
+	font-size: 11pt;
+}
+
+.comment {
+	font-size: 8pt;
+	text-align: right;
+}
+
+th {
+	font-size: 11pt;
+	font-weight: normal;
+}
+
+td {
+	font-size: 11pt;
+}
+
+li {
+	font-size: 11pt;
+}
+
 .item:hover {
 	text-decoration: line-through;
 	color: #FF0000;

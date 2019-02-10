@@ -10,8 +10,8 @@
       <title>Estimate</title>
    </head>
    <body>
-   <h1>ESTIMATE<img src="http://lazypic.org/images/doc_cal.svg" width="120"></h1>
-   <div>
+   <h1>ESTIMATE<img src="http://lazypic.org/images/doc_cal.svg" width="60"></h1>
+   <div class="comment">
    <div id="docnum"></div>
    <div>작성자 : 김한웅</div>
    <div id="writeDate"></div>
@@ -19,25 +19,28 @@
    <h2 id="doctitle">Title</h2>
    <input id="doctitleInput" size="35" placeholder="Estimate Title">
    <div>
-	<h3>Service Provider</h3>
-	Name : 김한웅<br>
-	Phone : <a href="tel:821094117096">+82 010 9411 7096</a><br>
-	E-mail : <a href="mailto:hello@lazypic.org">hello@lazypic.org</a><br>
-	Address :<br>
-   </div>
-   <div>
-   <h3>Customer</h3>
-   Name : <br>
-   Phone : <br>
-   E-mail : <br>
-   Address : <br>
+   <table border=1 width="100%">
+   <thead>
+   <tr>
+   <th width="50%">Service Provider</td>
+   <th width="50%">Customer</td>
+   </tr>
+   <tbody>
+   <tr>
+	   <td>Name : 김한웅</td><td>Name : </td>
+	</tr>
+   <tr><td>Phone : <a href="tel:821094117096">+82 010 9411 7096</a></td><td>Phone :</td></tr>
+   <tr><td>E-mail : <a href="mailto:hello@lazypic.org">hello@lazypic.org</a></td><td>E-mail :</td></tr>
+   <tr><td>Address : </td><td></td></tr>
+   </tbody>
+   </table>
    </div>
    <div>
 	  <h3>SUMMARY</h3>
-	  <table border=1>
+	  <table border=1 width="100%">
 	  <tr>
-	  	<th>구 분</th>
-		<th>금 액</th>
+	  	<th width="60%">구 분</th>
+		<th width="40%">금 액</th>
 	  </tr>
 	  <tr>
 	  	<td>Total(합계)</td>
@@ -76,18 +79,18 @@
 	  <button id="add" type="button">ADD</button>
 	</div>
 	  <!--list-->
-	  <table border="1">
+	  <table border="1" width="100%">
 	  <thead>
 		  <tr>
-			  <th>Type</th>
+			  <th width="80">Type</th>
 			  <th>Title</th>
-			  <th>Hour</th>
-			  <th>Pers</th>
-			  <th>SAR</th>
-			  <th>Charge</th>
-			  <th>SubTotal</th>
-			  <th>DR</th>
-			  <th>Total</th>
+			  <th width="40">Hour</th>
+			  <th width="40">Pers</th>
+			  <th width="40">SAR</th>
+			  <th width="90">Charge</th>
+			  <th width="90">SubTotal</th>
+			  <th width="40">DR</th>
+			  <th width="90">Total</th>
 		  </tr>
 	  </thead>
 	  <tbody id="list">
@@ -106,9 +109,10 @@
 		  </tr>
 	  </tfoot>
 	  </table>
+	  <div class="comment">
 	  SAR : Scope of Application Rate<br>
 	  DR : Discount Rate<br>
-	  Pers : 사용인원(적용 인원)
+	  Pers : 사용인원(적용 인원)</div>
 	  </div>
 	  <h3>INFOMATION</h3>
 	  <ul>
@@ -126,7 +130,6 @@
 	<li>2018년도 SW기술자 표준임금표 <a href="https://www.sw.or.kr/site/sw/ex/board/View.do?cbIdx=304&bcIdx=41033">https://www.sw.or.kr/site/sw/ex/board/View.do?cbIdx=304&bcIdx=41033</a></li>
 	<li>원천징수세율 : <a href="https://www.nts.go.kr/support/support_03.asp?cinfo_key=MINF4820100726150811">https://www.nts.go.kr/support/support_03.asp?cinfo_key=MINF4820100726150811</a></li>
 	<li>프리랜서 등 원천징수대상 일부 사업소득 : 3.3%</li>
-	<li>강연료 : 4.4%</li>
 	</ul>
 	</ul>
    <div>

@@ -10,7 +10,7 @@ func add(this js.Value, i []js.Value) js.Value {
 	return nil
 }
 
-func subtract(this js.Value i []js.Value) js.Value {
+func subtract(this js.Value, i []js.Value) js.Value {
 	js.Global().Set("output", js.ValueOf(i[0].Int()-i[1].Int()))
 	println(js.ValueOf(i[0].Int() - i[1].Int()).String())
 	return nil

@@ -6,7 +6,7 @@
       <title>Estimate</title>
    </head>
    <body>
-   <h1>ESTIMATE<img src="cal.png" width="120"></h1>
+   <h1>ESTIMATE<img src="http://lazypic.org/images/doc_cal.svg" width="120"></h1>
    <div>
    <div id="docnum"></div>
    <div>작성자 : 김한웅</div>
@@ -44,7 +44,7 @@
 	  	<td id="withholdingTax" align="right"></td>
 	  </tr>
 	  <tr>
-	  	<td>Total(원천징수제외)</td>
+	  	<td>Total - WithHolding Tax</td>
 	  	<td id="personal" align="right"></td>
 	  </tr>
 	  </table>
@@ -82,7 +82,7 @@
 			  <th>SAR</th>
 			  <th>Charge</th>
 			  <th>SubTotal</th>
-			  <th>Discount Rate</th>
+			  <th>DR</th>
 			  <th>Total</th>
 		  </tr>
 	  </thead>
@@ -90,7 +90,7 @@
 	  </tbody>
 	  <tfoot>
 		  <tr>
-			  <th>총계</th>
+			  <th></th>
 			  <th></th>
 			  <th id="itemsHour" align="right"></th>
 			  <th></th>
@@ -102,6 +102,9 @@
 		  </tr>
 	  </tfoot>
 	  </table>
+	  SAR : Scope of Application Rate<br>
+	  DR : Discount Rate<br>
+	  Pers : 사용인원(적용 인원)
 	  </div>
 	  <h3>INFOMATION</h3>
 	  <ul>
@@ -124,11 +127,13 @@
 	</ul>
    <div>
    <center>
-   <button onclick="printMode()">인쇄모드</button>
-   <button onclick="inputMode()">입력모드</button>
+   <img src="http://lazypic.org/images/logo.svg" onclick="inputMode()" width="100">
    <div id="link">
-  	 <a href="https://github.com/lazypic/estimate">sourcecode</a>
-  	 <a href="https://github.com/lazypic/estimate/issues">issue</a>
+   	<button onclick="printMode()">인쇄모드</button><br>
+  	 <a href="https://github.com/lazypic/estimate">Github</a><br>
+  	 <a href="https://github.com/lazypic/estimate/issues">Issue</a><br>
+	 하단의 로고를 누르면 입력모드로 다시 돌아갑니다.
+
    </div>
    </center>
    </div>

@@ -13,8 +13,8 @@ function initItem() {
     document.getElementById("charge").value = 55457;
 }
 
-function numberWithCommas(x) {
-	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+function numberWithCommas(n) {
+	return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function newItem() {

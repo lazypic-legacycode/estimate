@@ -2,19 +2,31 @@ var doc = {
 	title:"",
 	num:"",
 	writedate:"",
+	unit:"￦",
 	items:[],
 };
 
 function initItem() {
+    document.getElementById("doctitleInput").value = "";
     document.getElementById("title").value = "";
     document.getElementById("type").value = "Service";
     document.getElementById("hour").value = 1;
     document.getElementById("pers").value = 4;
-    document.getElementById("charge").value = 55457;
+    document.getElementById("charge").value = 55000;
 }
 
 function numberWithCommas(n) {
 	return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function newTitle() {
+    var title = document.getElementById("doctitleInput").value;
+	if ( title == "" ) {
+		return
+	};
+	document.getElementById("doctitle").innerHTML = "Title : " + title;
+	// init doc title
+    document.getElementById("doctitleInput").value = "";
 }
 
 function newItem() {
@@ -35,8 +47,8 @@ function newItem() {
 	var subtotal = Math.round(hour * sar * charge);
 	var discount = 1.0;
 	var total = discount * subtotal;
-    var ul = document.getElementById("list");
-    var li = document.createElement("li");
+    var tbody = document.getElementById("list");
+    var tr = document.createElement("tr");
 	var item = {};
 	item["id"] = id;
 	item["type"] = type;
@@ -48,55 +60,87 @@ function newItem() {
 	item["discount"] = discount;
 	item["total"] = total;
 	doc.items.push(item)
-	li.setAttribute("id", id);
-	li.setAttribute("class","item")
-	var chargeWithCommas = numberWithCommas(charge);
-	var subTotalWithCommas = numberWithCommas(subtotal);
-	var totalWithCommas = numberWithCommas(total);
-    li.appendChild(document.createTextNode(`${type} : ${title} : ${hour} ${pers} ${sar} ${chargeWithCommas} ${subTotalWithCommas} ${discount} ${totalWithCommas}`));
-    li.onclick = removeItem;
-    ul.appendChild(li);
+	tr.setAttribute("id", id);
+	tr.setAttribute("class","item")
+	var chargeWithCommas = doc.unit + " " + numberWithCommas(charge);
+	var subTotalWithCommas = doc.unit + " " + numberWithCommas(subtotal);
+	var totalWithCommas = doc.unit + " " + numberWithCommas(total);
+    var iType = document.createElement("td");
+	iType.appendChild(document.createTextNode(type))
+    var iTitle = document.createElement("td");
+	iTitle.appendChild(document.createTextNode(title))
+    var iHour = document.createElement("td");
+	iHour.appendChild(document.createTextNode(hour))
+    var iPers = document.createElement("td");
+	iPers.appendChild(document.createTextNode(pers))
+    var iSar = document.createElement("td");
+	iSar.appendChild(document.createTextNode(sar))
+    var iCharge = document.createElement("td");
+	iCharge.appendChild(document.createTextNode(chargeWithCommas))
+    var iSubTotal = document.createElement("td");
+	iSubTotal.appendChild(document.createTextNode(subTotalWithCommas))
+    var iDiscount = document.createElement("td");
+	iDiscount.appendChild(document.createTextNode(discount))
+    var iTotal = document.createElement("td");
+	iTotal.appendChild(document.createTextNode(totalWithCommas))
+
+	tr.appendChild(iType)
+	tr.appendChild(iTitle)
+	tr.appendChild(iHour)
+	tr.appendChild(iPers)
+	tr.appendChild(iSar)
+	tr.appendChild(iCharge)
+	tr.appendChild(iSubTotal)
+	tr.appendChild(iDiscount)
+	tr.appendChild(iTotal)
+    tr.onclick = removeItem;
+    tbody.appendChild(tr);
 	initItem()
 	updateTotal()
 }
 
 function removeItem(e) {
-	id = e.target.getAttribute("id");
+	id = e.target.parentElement.getAttribute("id");
+
 	// remove items
 	for ( i = 0; i < doc.items.length; i++){ 
 	   	if ( doc.items[i]["id"] == id) {
 			 doc.items.splice(i, 1); 
 	   	};
 	};
-	updateTotal();
 	// remove self
-    e.target.parentElement.removeChild(e.target);
+    e.target.parentElement.remove(e.target);
+	updateTotal();
 }
 
 function updateTotal() {
 	var total = 0;
 	for (i = 0; i < doc.items.length; i++) {
-		total += doc.items[i]["subtotal"];
+		total += doc.items[i]["total"];
 	}
-	document.getElementById("total").innerHTML = numberWithCommas(total)
-	document.getElementById("vat").innerHTML = numberWithCommas(Math.round(total * 0.1))
-	document.getElementById("withholdingTax").innerHTML = numberWithCommas(Math.round(total * 0.033))
-	document.getElementById("company").innerHTML = numberWithCommas(total + Math.round(total * 0.1))
-	document.getElementById("personal").innerHTML = numberWithCommas(total - Math.round(total * 0.033))
+	document.getElementById("total").innerHTML = doc.unit + " " + numberWithCommas(total)
+	document.getElementById("withholdingTax").innerHTML = doc.unit + " " + numberWithCommas(Math.round(total * 0.033))
+	document.getElementById("personal").innerHTML = doc.unit + " " + numberWithCommas(total - Math.round(total * 0.033))
+	// document.getElementById("vat").innerHTML = doc.unit + numberWithCommas(Math.round(total * 0.1))
+	// document.getElementById("company").innerHTML = doc.unit + numberWithCommas(total + Math.round(total * 0.1))
 }
 
 function inputMode() {
-	var inputForm = document.getElementById('itemInput');
-	inputForm.style.display='block';
-	var issue = document.getElementById('issue');
-	issue.style.display='block';
+	var inputTitleForm = document.getElementById('doctitleInput');
+	inputTitleForm.style.display='block';
+	var inputItemForm = document.getElementById('itemInput');
+	inputItemForm.style.display='block';
+	var link = document.getElementById('link');
+	link.style.display='block';
 }
 
 function printMode() {
-	var inputForm = document.getElementById('itemInput');
-	inputForm.style.display='none';
-	var issue = document.getElementById('issue');
-	issue.style.display='none';
+	var inputTitleForm = document.getElementById('doctitleInput');
+	inputTitleForm.style.display='none';
+	var inputItemForm = document.getElementById('itemInput');
+	inputItemForm.style.display='none';
+	var link = document.getElementById('link');
+	link.style.display='none';
 
 	window.print();
 }
@@ -133,6 +177,7 @@ function docNum() {
 document.body.onkeyup = function(e) {
     if (e.keyCode == 13) {
         newItem();
+		newTitle();
     }
 };
 document.getElementById('add').addEventListener('click',newItem);

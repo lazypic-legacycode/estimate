@@ -70,18 +70,25 @@ function newItem() {
     var iTitle = document.createElement("td");
 	iTitle.appendChild(document.createTextNode(title))
     var iHour = document.createElement("td");
+	iHour.setAttribute("align","right")
 	iHour.appendChild(document.createTextNode(hour))
     var iPers = document.createElement("td");
+	iPers.setAttribute("align","right")
 	iPers.appendChild(document.createTextNode(pers))
     var iSar = document.createElement("td");
+	iSar.setAttribute("align","right")
 	iSar.appendChild(document.createTextNode(sar))
     var iCharge = document.createElement("td");
+	iCharge.setAttribute("align","right")
 	iCharge.appendChild(document.createTextNode(chargeWithCommas))
     var iSubTotal = document.createElement("td");
+	iSubTotal.setAttribute("align","right")
 	iSubTotal.appendChild(document.createTextNode(subTotalWithCommas))
     var iDiscount = document.createElement("td");
+	iDiscount.setAttribute("align","right")
 	iDiscount.appendChild(document.createTextNode(discount))
     var iTotal = document.createElement("td");
+	iTotal.setAttribute("align","right")
 	iTotal.appendChild(document.createTextNode(totalWithCommas))
 
 	tr.appendChild(iType)
@@ -114,13 +121,23 @@ function removeItem(e) {
 }
 
 function updateTotal() {
-	var total = 0;
+	var itemsHour = 0;
+	var itemsCharge = 0;
+	var itemsSubTotal = 0;
+	var itemsTotal = 0;
 	for (i = 0; i < doc.items.length; i++) {
-		total += doc.items[i]["total"];
+		itemsHour += doc.items[i]["hour"];
+		itemsCharge += doc.items[i]["charge"];
+		itemsSubTotal += doc.items[i]["subtotal"];
+		itemsTotal += doc.items[i]["total"];
 	}
-	document.getElementById("total").innerHTML = doc.unit + " " + numberWithCommas(total)
-	document.getElementById("withholdingTax").innerHTML = doc.unit + " " + numberWithCommas(Math.round(total * 0.033))
-	document.getElementById("personal").innerHTML = doc.unit + " " + numberWithCommas(total - Math.round(total * 0.033))
+	document.getElementById("total").innerHTML = doc.unit + " " + numberWithCommas(itemsTotal)
+	document.getElementById("withholdingTax").innerHTML = doc.unit + " " + numberWithCommas(Math.round(itemsTotal * 0.033))
+	document.getElementById("personal").innerHTML = doc.unit + " " + numberWithCommas(itemsTotal - Math.round(itemsTotal * 0.033))
+	document.getElementById("itemsHour").innerHTML = itemsHour
+	document.getElementById("itemsCharge").innerHTML = doc.unit + " " + numberWithCommas(itemsCharge)
+	document.getElementById("itemsSubTotal").innerHTML = doc.unit + " " + numberWithCommas(itemsSubTotal)
+	document.getElementById("itemsTotal").innerHTML = doc.unit + " " + numberWithCommas(itemsTotal)
 	// document.getElementById("vat").innerHTML = doc.unit + numberWithCommas(Math.round(total * 0.1))
 	// document.getElementById("company").innerHTML = doc.unit + numberWithCommas(total + Math.round(total * 0.1))
 }

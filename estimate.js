@@ -167,7 +167,7 @@ function writeDate() {
 	var y = date.getFullYear();
 	var m = date.getMonth() + 1;
 	var d = date.getDate();
-	doc.writedate = `작성일 : ${y}. ${m}. ${d}`;
+	doc.writedate = `Created : ${y}. ${m}. ${d}`;
 	document.getElementById("writeDate").innerHTML = doc.writedate;
 }
 

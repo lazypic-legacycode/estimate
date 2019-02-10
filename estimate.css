@@ -1,9 +1,8 @@
-/*
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 html {
-    font-family: "Avenir Next", Helevetica, sans-serif;
-    text-align: center;
+	font–family: "Nanum Gothic" ;
 }
-  
+/*  
 body {
 max-width: 500px;
 margin: 0 auto;
@@ -21,13 +20,8 @@ input:focus {
 outline: none;
 }
 
-li {
-text-align: left;
-font-size: 40px;
-list-style: none;
-margin: 0;
-}
 */
 .item:hover {
-text-decoration: line-through;
+	text-decoration: line-through;
+	color: #FF0000;
 }

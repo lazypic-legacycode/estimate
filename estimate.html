@@ -87,7 +87,7 @@
       <input id="title" size="35" placeholder="title">
       <input id="hour" type="number" min="1" max="1000" value="1" placeholder="hour">H
       <input id="pers" type="number" step="1" min="1" max="100000" value="4" placeholder="pers">Pers
-      <input id="charge" type="number" step="1" min="0" max="100000000000" value="55000" placeholder="charge">
+      <input id="charge" type="number" step="1" min="0" max="100000000000" value="55457" placeholder="charge">
 	  <button id="add" type="button">ADD</button>
 	</div>
 	  <!--list-->
@@ -135,13 +135,14 @@
 	  	<ul>
 			<li>같은 소프트웨어라도 회사 인원규모대비 프로그램의 가치가 달라집니다.</li>
 			<li>5명 미만의 회사는 적용비율을 1.0으로 계산합니다.</li>
-			<li>5명 이상부터는 적용비율을 1.0 + ( 인원 x 0.05 ) 비율로 계산합니다.</li>
+			<li>5명 이상부터는 적용비율을 1.0 + ( 인원 x 0.0005 ) 비율로 계산합니다.</li>
 		</ul>
 	<li>인건비 산정근거
 	<ul>
 	<li>2018년도 SW기술자 표준임금표 <a href="https://www.sw.or.kr/site/sw/ex/board/View.do?cbIdx=304&bcIdx=41033">https://www.sw.or.kr/site/sw/ex/board/View.do?cbIdx=304&bcIdx=41033</a></li>
 	<li>원천징수세율 : <a href="https://www.nts.go.kr/support/support_03.asp?cinfo_key=MINF4820100726150811">https://www.nts.go.kr/support/support_03.asp?cinfo_key=MINF4820100726150811</a></li>
 	<li>프리랜서 등 원천징수대상 일부 사업소득 : 3.3%</li>
+	<li>코드 작성에 사용된 업무시간 계산방법 : <a href="https://github.com/lazypic/git-hours">https://github.com/lazypic/git-hours</a></li>
 	</ul>
 	</ul>
    <div>

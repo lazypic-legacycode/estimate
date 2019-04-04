@@ -12,7 +12,7 @@ function initItem() {
     document.getElementById("type").value = "Service";
     document.getElementById("hour").value = 1;
     document.getElementById("pers").value = 4;
-    document.getElementById("charge").value = 55000;
+    document.getElementById("charge").value = 55457;
 }
 
 function numberWithCommas(n) {
@@ -42,7 +42,7 @@ function newItem() {
 	var charge = Number(document.getElementById("charge").value);
 	var sar = 1.0
 	if ( pers > 4 ) {
-		sar = 1.0 + (pers * 0.05)
+		sar = 1.0 + (pers * 0.0005)
 	}
 	var subtotal = Math.round(hour * sar * charge);
 	var discount = 1.0;
